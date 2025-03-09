@@ -88,7 +88,7 @@ function ProductShowcase({ category }) {
         quantity: 1,
       });
 
-      toast.success(`${product.name} added to cart!`, {
+      toast.success(`${product.name} ${translations?.added_to_cart}`, {
         position: "bottom-center",
         autoClose: 3000,
         hideProgressBar: true,
@@ -312,7 +312,7 @@ function ProductShowcase({ category }) {
                           },
                         }}
                       >
-                        Save ₹
+                        {translations?.save_title || "Loading..."} ₹
                         {parseFloat(product.discountPrice).toFixed(2)}
 
                       </Typography>
@@ -347,10 +347,12 @@ function ProductShowcase({ category }) {
                             color: "white",
                           }}
                         />
-                        <span style={{ opacity: 0 }}>Add to Cart</span>
+                        <span style={{ opacity: 0 }}>{translations?.add_to_cart || "Loading..."}</span>
                       </>
                     ) : (
-                      "Add to Cart"
+                      <span>
+                        {translations?.add_to_cart || "Loading..."}
+                      </span>
                     )} 
                   </Button>
                 </CardContent>

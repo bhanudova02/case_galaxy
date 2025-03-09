@@ -24,10 +24,12 @@ import Header from "./Header";
 import MultiStepCheckoutForm from "./MultiStepCheckoutForm";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const API_BASE_URL = "http://localhost:5000/api";
 
 function ProductDetail() {
+  const {translations} = useLanguage();
   const { productId } = useParams();
   const navigate = useNavigate();
   const theme = useTheme();
@@ -84,7 +86,7 @@ function ProductDetail() {
         quantity: 1,
       });
 
-      toast.success(`${product.name} added to cart!`, {
+      toast.success(`${product.name} ${translations?.added_to_cart}`, {
         position: "bottom-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -265,12 +267,12 @@ function ProductDetail() {
                     precision={0.5}
                   />
                   <Typography variant="body2" color="text.secondary">
-                    ({product.reviews || 0} reviews)
+                    ({product.reviews || 0} {translations?.reviews})
                   </Typography>
                 </Box>
 
                 <Chip
-                  label={product.inStock ? "In Stock" : "Out of Stock"}
+                  label={product.inStock ? translations?.in_stock : translations?.out_of_stock}
                   color={product.inStock ? "success" : "error"}
                   size="small"
                   sx={{ mb: 3 }}
@@ -333,10 +335,10 @@ function ProductDetail() {
                             marginLeft: "-12px",
                           }}
                         />
-                        <span style={{ opacity: 0 }}>Add to Cart</span>
+                        <span style={{ opacity: 0 }}>{translations?.add_to_cart || "Loading..."}</span>
                       </>
                     ) : (
-                      "Add to Cart"
+                     <span>{translations?.add_to_cart || "Loading..."}</span>
                     )}
                   </Button>
                 </Box>

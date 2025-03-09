@@ -1,0 +1,14 @@
+[
+    {
+        "reviews":"reviews",
+        "in_stock":"In Stock",
+        "out_of_stock":"Out of Stock"
+
+    },
+    {
+        "reviews":"评价",
+        "in_stock":"有货 ",
+        "out_of_stock":"缺货",
+
+    }
+]

@@ -39,6 +39,12 @@
         }
       ],
       "carousel_btn": "Explore Covers",
+      "add_to_cart":"ADD TO CART",
+      "added_to_cart":"added to cart!",
+      "save_title":"Save",
+      "reviews":"reviews",
+        "in_stock":"In Stock",
+        "out_of_stock":"Out of Stock",
       "usp_items": [
         {
           "title": "Eco-Friendly",
@@ -151,6 +157,12 @@
         }
       ],
       "carousel_btn": "探索保护壳",
+      "add_to_cart":"加入购物车",
+      "added_to_cart":"已加入购物车！",
+      "save_title":"保存",
+      "reviews":"评价",
+      "in_stock":"有货 ",
+      "out_of_stock":"缺货",
       "usp_items": [
         {
           "title": "环保材料",
@@ -224,3 +236,7 @@
     }
   }
 ]
+
+
+
+
