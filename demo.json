@@ -2,12 +2,11 @@
     {
         "details_title":"Details",
         "payment_title":"Payment",
-        "confirm_title":"Confirm",
-       
+        "confirm_title":"Confirm"
     },
     {
         "details_title":"详情",
         "payment_title":"付款",
-        "confirm_title":"确认",
+        "confirm_title":"确认"
     }
 ]
