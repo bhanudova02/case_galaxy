@@ -100,7 +100,7 @@ function Header(props) {
                     WebkitTextFillColor: "transparent",
                     cursor: "pointer",
                     "@media (max-width: 678px)": {
-                      fontSize: "20px", // Font size for screen width <= 678px
+                      fontSize: "16px", // Font size for screen width <= 678px
                     },
                   }}
                   onClick={handleNavigation}
@@ -110,7 +110,7 @@ function Header(props) {
               </motion.div>
 
               {/* Right Menu */}
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap:{xs:0,sm:2} }}>
                 {/* Cart Icon */}
                 <LanguageSelector />
                 <IconButton

@@ -52,36 +52,175 @@
           "title": "Customizable",
           "description": "Add your own touch with custom designs."
         }
-      ]
+      ],
+      "products_title": "Products",
+      "testomonial_title": "Customer Testimonials",
+      "testomonial_data": [
+        {
+          "id": 1,
+          "name": "Raju",
+          "rating": 5,
+          "comment": "Very durable and looks super sleek. Totally worth it.",
+          "avatar": "https://media.gettyimages.com/id/175990379/video/portrait-of-a-horrible-boss.jpg?s=640x640&k=20&c=rrcEN7JwxCS3NEPBD6eHN-R_I7zUv98CL-lpMCzaDGA="
+        },
+        {
+          "id": 2,
+          "name": "Ram",
+          "rating": 5,
+          "comment": "Stylish and strong, it makes my phone look amazing!",
+          "avatar": "https://media.istockphoto.com/id/849455442/photo/smiling-businessman-in-his-office.jpg?s=612x612&w=0&k=20&c=PcM0ei31yAmQLV_LjzQODC424QDcMeEDff9r-gmJyu0="
+        },
+        {
+          "id": 3,
+          "name": "Krishna",
+          "rating": 5,
+          "comment": "Perfect fit and looks amazing! The case feels premium.",
+          "avatar": "https://img.freepik.com/premium-photo/smiling-businessman-formal-wear-using-tablet-while-standing-rooftop_232070-1360.jpg"
+        }
+      ],
+      "lead_capture": {
+        "title": "Get 15% Exclusive Offers",
+        "alert": "Congratulations! You got a 15% flat discount.",
+        "btn_title": "Submit",
+        "name_label": "Full Name",
+        "number_label": "Phone Number"
+      },
+      "benefits_data": {
+        "title": "Exceptional Features",
+        "benefits": [
+          "Advanced heat dissipation for improved performance.",
+          "Scratch-resistant surface with anti-glare properties.",
+          "Eco-friendly materials used for sustainable design.",
+          "Enhanced grip for better handling and usability.",
+          "Optimized for wireless charging with no interference."
+        ]
+      },
+      "our_impact": {
+        "title": "Our Impact",
+        "status_data": [
+          { "value": "90%", "label": "Customer Satisfaction" },
+          { "value": "200+", "label": "Unique Designs" },
+          { "value": "10M+", "label": "Covers Sold" }
+        ]
+      },
+      "footer":{
+        "col_one":{"title":"Case Galaxy","description":"Elevating device protection since 2025."},
+        "col_two":{"title":"Contact Us","description":"Phone"},
+        "col_three":{"title":"Follow Us","fb_url":"https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F","insta_url":"https://www.instagram.com/?hl=en","twitter_url":"https://x.com/?lang=en&mx=2"},
+        "copy_right":"All rights reserved."
+      }
     }
   },
+  {
+    "language": "zh",
+    "translations": {
+      "title": "案例银河",
+      "logout": "登出",
+      "cart_modal": {
+        "title": "您的购物车",
+        "btn_title": "继续购买",
+        "cart_empty": "您的购物车为空",
+        "remove": "移除",
+        "total": "总计"
+      },
+      "sm_menu": "菜单",
+      "hero_carousel": [
+        {
+          "type": "video",
+          "src": "/assets/banner.mp4",
+          "heading": "提升您的设备",
+          "subheading": "为现代智能手机提供未来保护"
+        },
+        {
+          "type": "image",
+          "src": "/assets/Mobile_banner1.jpg",
+          "heading": "时尚设计",
+          "subheading": "让您的设备时尚又安全"
+        },
+        {
+          "type": "image",
+          "src": "/assets/Mobile_banner2.jpg",
+          "heading": "耐用材料",
+          "subheading": "为每一个场合提供持久保护"
+        },
+        {
+          "type": "image",
+          "src": "/assets/Mobile_banner3.jpeg",
+          "heading": "轻量化保护壳",
+          "subheading": "日常使用的舒适与便利"
+        }
+      ],
+      "carousel_btn": "探索保护壳",
+      "usp_items": [
+        {
+          "title": "环保材料",
+          "description": "采用可持续材料制成。"
+        },
+        {
+          "title": "免费配送",
+          "description": "所有订单均可享受免费配送。"
+        },
+        {
+          "title": "可定制",
+          "description": "使用定制设计增添个人风格。"
+        }
+      ],
+      "products_title": "产品",
+      "testomonial_title": "客户评价",
+      "testomonial_data": [
+        {
+          "id": 1,
+          "name": "Raju",
+          "rating": 5,
+          "comment": "非常耐用，看起来很时尚，完全值得购买。",
+          "avatar": "https://media.gettyimages.com/id/175990379/video/portrait-of-a-horrible-boss.jpg?s=640x640&k=20&c=rrcEN7JwxCS3NEPBD6eHN-R_I7zUv98CL-lpMCzaDGA="
+        },
+        {
+          "id": 2,
+          "name": "Ram",
+          "rating": 5,
+          "comment": "时尚又结实，让我的手机焕然一新！",
+          "avatar": "https://media.istockphoto.com/id/849455442/photo/smiling-businessman-in-his-office.jpg?s=612x612&w=0&k=20&c=PcM0ei31yAmQLV_LjzQODC424QDcMeEDff9r-gmJyu0="
+        },
+        {
+          "id": 3,
+          "name": "Krishna",
+          "rating": 5,
+          "comment": "完美贴合，看起来很棒！手感非常高级。",
+          "avatar": "https://img.freepik.com/premium-photo/smiling-businessman-formal-wear-using-tablet-while-standing-rooftop_232070-1360.jpg"
+        }
+      ],
+      "lead_capture": {
+        "title": "获取15%专属优惠",
+        "alert": "恭喜！您获得15%折扣。",
+        "btn_title": "提交",
+        "name_label": "全名",
+        "number_label": "电话号码"
+      },
+      "benefits_data": {
+        "title": "卓越功能",
+        "benefits": [
+          "先进的散热设计，提高设备性能。",
+          "防刮表面，具有防眩光特性。",
+          "采用环保材料，实现可持续设计。",
+          "增强握持感，提高操作体验。",
+          "优化无线充电，无干扰。"
+        ]
+      },
+      "our_impact": {
+        "title": "我们的影响",
+        "status_data": [
+          { "value": "90%", "label": "客户满意度" },
+          { "value": "200+", "label": "独特设计" },
+          { "value": "10M+", "label": "已售保护壳" }
+        ]
+      },
+      "footer":{
+        "col_one": {"title": "案例银河", "description": "自2025年以来提升设备保护。"},
+        "col_two": {"title": "联系我们", "description": "电话"},
+        "col_three": {"title": "关注我们", "fb_url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F", "insta_url": "https://www.instagram.com/?hl=en", "twitter_url": "https://x.com/?lang=en&mx=2"},
+        "copy_right": "版权所有。"
+      }
+    }
+  }
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const { translations } = useLanguage();
-  return (
-    <div className="container py-5">
-      <header className="mb-4 text-center">
-        <h1 className="display-4 fw-bold">{translations?.title || "Loading..."}</h1>
-        <p className="lead text-secondary">{translations?.subtitle || "Loading..."}</p>
-      </header>
-    </div>
-  );
-
-
-

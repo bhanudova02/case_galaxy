@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { AnimatePresence } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 
 // Create custom theme
 const newTheme = createTheme({
@@ -71,6 +72,7 @@ const newTheme = createTheme({
 });
 
 const LeadCaptureForm = () => {
+  const {translations} = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -96,6 +98,7 @@ const LeadCaptureForm = () => {
     color: "#6200ea", // Purple text color for the title
   };
 
+
   // Validation patterns
   const patterns = {
     name: /^[a-zA-Z\s]{2,50}$/,
@@ -105,12 +108,12 @@ const LeadCaptureForm = () => {
   // Error messages
   const errorMessages = {
     name: {
-      required: "Name is required",
-      pattern: "Name should only contain letters and spaces (2-50 characters)",
+      required: translations?.lead_capture?.errName?.required,
+      pattern: translations?.lead_capture?.errName?.pattern
     },
     phone: {
-      required: "Phone number is required",
-      pattern: "Phone number must start with 6, 7, 8, or 9 and be 10 digits long",
+      required: translations?.lead_capture?.errPhone?.required,
+      pattern: translations?.lead_capture?.errPhone?.pattern
     },
   };
 
@@ -189,21 +192,22 @@ const LeadCaptureForm = () => {
     boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)", // Light shadow for the card
   };
 
+
   return (
     <ThemeProvider theme={newTheme}>
       <Container maxWidth={false} disableGutters sx={containerStyles}>
         <Paper elevation={8} sx={paperStyles}>
           <Typography variant="h1" sx={titleStyles}>
-            Get 15% Exclusive Offers
+           {translations?.lead_capture?.title || "Loading"}
           </Typography>
           <AnimatePresence>
             {submitted ? (
-             <Alert severity="success">congratulations you got 15% flat discount</Alert>
+             <Alert severity="success">{translations?.lead_capture?.alert || "Loading"} </Alert>
             ) : (
               <form onSubmit={handleSubmit}>
                 <Box display="flex" flexDirection="column" gap="1.5rem">
                   <TextField
-                    label="Full Name"
+                    label={translations?.lead_capture?.name_label || "Loading"}
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -213,7 +217,7 @@ const LeadCaptureForm = () => {
                     fullWidth
                   />
                   <TextField
-                    label="Phone Number"
+                    label={translations?.lead_capture?.number_label || "Loading"}
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
@@ -241,7 +245,7 @@ const LeadCaptureForm = () => {
                     {isSubmitting ? (
                       <CircularProgress size={24} />
                     ) : (
-                      "Submit"
+                      <span>{translations?.lead_capture?.btn_title || "Loading"}</span>
                     )}
                   </Button>
                 </Box>

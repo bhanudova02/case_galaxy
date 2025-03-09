@@ -16,11 +16,14 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL || "http://localhost:5000/api";
 
 function ProductShowcase({ category }) {
+  const {translations} = useLanguage();
+
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -41,7 +44,7 @@ function ProductShowcase({ category }) {
       setProducts(response.data);
       setError(null);
     } catch (err) {
-      setError("Failed to fetch products. Please try again later.");
+      setError("404 Error: Products not found. Please try again later.");
       toast.error("Error loading products");
     } finally {
       setLoading(false);
@@ -159,7 +162,7 @@ function ProductShowcase({ category }) {
         textAlign="center"
         sx={{ color: " rgb(0, 0, 0)", mb: 4, fontWeight: "bold" }}
       >
-        {category} Products
+        {category} {translations?.products_title || "Loading..."}
       </Typography>
       <Grid
         container

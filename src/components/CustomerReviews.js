@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Box, Avatar, Rating, Container, Paper } from "@mui/material";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const reviews = [
   {
@@ -28,6 +29,7 @@ const reviews = [
 ];
 
 function CustomerReviews() {
+  const { translations } = useLanguage();
   return (
     <Box sx={{ py: 12, background: "#ffffff", color: "white" }}>
       <Container maxWidth="md">
@@ -42,50 +44,57 @@ function CustomerReviews() {
             mb: 4,
           }}
         >
-          Customer Testimonials
+          {translations?.testomonial_title || "Loading..."}
         </Typography>
 
         <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-          {reviews.map((review) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Paper
-                elevation={4}
-                sx={{
-                  background: "rgb(55, 228, 240)",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 3,
-                  color: "white",
-                }}
+          {/* {reviews.map((review) => (
+            
+          ))} */}
+          {translations?.testomonial_data ? (
+            translations.testomonial_data.map((review) => (
+              <motion.div
+                key={review.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
-                <Avatar
-                  alt={review.name}
-                  src={review.avatar}
+                <Paper
+                  elevation={4}
                   sx={{
-                    width: 70,
-                    height: 70,
-                    border: "3px solid #007BFF",
+                    background: "rgb(55, 228, 240)",
+                    borderRadius: "10px",
+                    padding: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 3,
+                    color: "white",
                   }}
-                />
-                <Box>
-                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
-                    {review.name}
-                  </Typography>
-                  <Rating value={review.rating} readOnly sx={{ my: 1 }} />
-                  <Typography variant="body2" sx={{ fontStyle: "italic", opacity: 0.8, color: "white" }}>
-                    "{review.comment}"
-                  </Typography>
-                </Box>
-              </Paper>
-            </motion.div>
-          ))}
+                >
+                  <Avatar
+                    alt={review.name}
+                    src={review.avatar}
+                    sx={{
+                      width: 70,
+                      height: 70,
+                      border: "3px solid #007BFF",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
+                      {review.name}
+                    </Typography>
+                    <Rating value={review.rating} readOnly sx={{ my: 1 }} />
+                    <Typography variant="body2" sx={{ fontStyle: "italic", opacity: 0.8, color: "white" }}>
+                      "{review.comment}"
+                    </Typography>
+                  </Box>
+                </Paper>
+              </motion.div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </Box>
       </Container>
     </Box>

@@ -2,8 +2,10 @@ import { Facebook, Instagram, Twitter } from '@mui/icons-material';
 import { Box, Grid, Link, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function Footer() {
+  const { translations } = useLanguage();
   return (
     <Box
       sx={{
@@ -28,7 +30,7 @@ function Footer() {
               variant='h6'
               gutterBottom
               sx={{
-                backgroundColor:'rgb(100 200 250)', // Gradient colors (pink to blue)
+                backgroundColor: 'rgb(100 200 250)', // Gradient colors (pink to blue)
                 WebkitBackgroundClip: 'text', // Clip the background to text
                 color: 'transparent', // Make the text transparent to show the gradient
                 borderRadius: { xs: "8px", sm: "12px", md: "16px" },
@@ -36,13 +38,13 @@ function Footer() {
                 textAlign: 'center',
               }}
             >
-            Case Galaxy
+              {translations?.footer?.col_one?.title || "Loading..."}
             </Typography>
             <Typography
               variant='body2'
               sx={{ lineHeight: 1.8, textAlign: 'center' }}
             >
-              Elevating device protection since 2025.
+              {translations?.footer?.col_one?.description || "Loading..."}
             </Typography>
           </motion.div>
         </Grid>
@@ -54,7 +56,7 @@ function Footer() {
               variant='h6'
               gutterBottom
               sx={{
-                backgroundColor:'rgb(100 200 250)', // Gradient for the text
+                backgroundColor: 'rgb(100 200 250)', // Gradient for the text
                 WebkitBackgroundClip: 'text',
                 color: 'transparent', // Text will be transparent to show the gradient
                 borderRadius: { xs: "8px", sm: "12px", md: "16px" },
@@ -62,13 +64,13 @@ function Footer() {
                 textAlign: 'center',
               }}
             >
-              Contact Us
+              {translations?.footer?.col_two?.title || "Loading..."}
             </Typography>
             <Typography
               variant='body2'
               sx={{ lineHeight: 1.8, textAlign: 'center' }}
             >
-              Phone:{' '}
+              {translations?.footer?.col_two?.description || "Loading..."}{' '}
               <Link color='inherit'>
                 +91 97054 60388
               </Link>
@@ -83,7 +85,7 @@ function Footer() {
               variant='h6'
               gutterBottom
               sx={{
-          backgroundColor:'rgb(100 200 250)', // Gradient for the text
+                backgroundColor: 'rgb(100 200 250)', // Gradient for the text
                 WebkitBackgroundClip: 'text',
                 color: 'transparent', // Text will be transparent to show the gradient
                 borderRadius: { xs: "8px", sm: "12px", md: "16px" },
@@ -91,13 +93,13 @@ function Footer() {
                 textAlign: 'center',
               }}
             >
-              Follow Us
+              {translations?.footer?.col_three?.title || "Loading..."}
             </Typography>
             <Box
               sx={{ display: 'flex', gap: 2, justifyContent: 'center', mt: 1 }}
             >
               <Link
-                href='https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F'
+                href={translations?.footer?.col_three?.fb_url}
                 color='inherit'
                 target='_blank'
                 sx={{
@@ -108,7 +110,7 @@ function Footer() {
                 <Facebook fontSize='large' />
               </Link>
               <Link
-                href='https://www.instagram.com/?hl=en'
+                href={translations?.footer?.col_three?.insta_url}
                 target='_blank'
                 color='inherit'
                 sx={{
@@ -119,7 +121,7 @@ function Footer() {
                 <Instagram fontSize='large' />
               </Link>
               <Link
-                href='https://x.com/?lang=en&mx=2'
+                href={translations?.footer?.col_three?.twitter_url}
                 target='_blank'
                 color='inherit'
                 sx={{
@@ -143,9 +145,9 @@ function Footer() {
               component='span'
               sx={{ fontWeight: 'bold', color: 'dark.main' }}
             >
-              Case Galaxy
+              {translations?.title || "Loading..."}
             </Typography>
-            . All rights reserved.
+            . {translations?.footer?.copy_right || "Loading..."}
           </Typography>
           {/* <Typography variant='body2' sx={{ mt: 1 }}>
             <Link href='#' color='inherit' underline='hover'>
