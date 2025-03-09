@@ -114,7 +114,10 @@
         "col_two":{"title":"Contact Us","description":"Phone"},
         "col_three":{"title":"Follow Us","fb_url":"https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F","insta_url":"https://www.instagram.com/?hl=en","twitter_url":"https://x.com/?lang=en&mx=2"},
         "copy_right":"All rights reserved."
-      }
+      },
+      "details_title":"Details",
+      "payment_title":"Payment",
+      "confirm_title":"Confirm"
     }
   },
   {
@@ -179,29 +182,29 @@
       ],
       "products_title": "产品",
       "testomonial_title": "客户评价",
-      "testomonial_data": [
-        {
-          "id": 1,
-          "name": "Raju",
-          "rating": 5,
-          "comment": "非常耐用，看起来很时尚，完全值得购买。",
-          "avatar": "https://media.gettyimages.com/id/175990379/video/portrait-of-a-horrible-boss.jpg?s=640x640&k=20&c=rrcEN7JwxCS3NEPBD6eHN-R_I7zUv98CL-lpMCzaDGA="
-        },
-        {
-          "id": 2,
-          "name": "Ram",
-          "rating": 5,
-          "comment": "时尚又结实，让我的手机焕然一新！",
-          "avatar": "https://media.istockphoto.com/id/849455442/photo/smiling-businessman-in-his-office.jpg?s=612x612&w=0&k=20&c=PcM0ei31yAmQLV_LjzQODC424QDcMeEDff9r-gmJyu0="
-        },
-        {
-          "id": 3,
-          "name": "Krishna",
-          "rating": 5,
-          "comment": "完美贴合，看起来很棒！手感非常高级。",
-          "avatar": "https://img.freepik.com/premium-photo/smiling-businessman-formal-wear-using-tablet-while-standing-rooftop_232070-1360.jpg"
-        }
-      ],
+     "testomonial_data": [
+    {
+      "id": 1,
+      "name": "王伟",
+      "rating": 5,
+      "comment": "非常耐用，看起来很时尚，完全值得购买。",
+      "avatar": "https://media.gettyimages.com/id/175990379/video/portrait-of-a-horrible-boss.jpg?s=640x640&k=20&c=rrcEN7JwxCS3NEPBD6eHN-R_I7zUv98CL-lpMCzaDGA="
+    },
+    {
+      "id": 2,
+      "name": "李娜",
+      "rating": 5,
+      "comment": "时尚又结实，让我的手机焕然一新！",
+      "avatar": "https://media.istockphoto.com/id/849455442/photo/smiling-businessman-in-his-office.jpg?s=612x612&w=0&k=20&c=PcM0ei31yAmQLV_LjzQODC424QDcMeEDff9r-gmJyu0="
+    },
+    {
+      "id": 3,
+      "name": "张强",
+      "rating": 5,
+      "comment": "完美贴合，看起来很棒！手感非常高级。",
+      "avatar": "https://img.freepik.com/premium-photo/smiling-businessman-formal-wear-using-tablet-while-standing-rooftop_232070-1360.jpg"
+    }
+],
       "lead_capture": {
         "title": "获取15%专属优惠",
         "alert": "恭喜！您获得15%折扣。",
@@ -232,7 +235,10 @@
         "col_two": {"title": "联系我们", "description": "电话"},
         "col_three": {"title": "关注我们", "fb_url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F", "insta_url": "https://www.instagram.com/?hl=en", "twitter_url": "https://x.com/?lang=en&mx=2"},
         "copy_right": "版权所有。"
-      }
+      },
+      "details_title":"详情",
+      "payment_title":"付款",
+      "confirm_title":"确认"
     }
   }
 ]

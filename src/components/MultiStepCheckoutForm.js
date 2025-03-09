@@ -20,12 +20,13 @@ import {
   Divider,
   useTheme,
   useMediaQuery,
-  CircularProgress, TableContainer,Table, TableHead, TableRow, TableCell, TableBody
+  CircularProgress, TableContainer, Table, TableHead, TableRow, TableCell, TableBody
 } from "@mui/material"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { useLanguage } from "../contexts/LanguageContext"
 
 const API_BASE_URL = "http://localhost:5000/api"
 
@@ -114,6 +115,7 @@ const fadeInUp = {
 }
 
 export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
+  const { translations } = useLanguage();
   const [step, setStep] = useState(1)
   const [direction, setDirection] = useState(0)
   const [formData, setFormData] = useState({
@@ -142,10 +144,10 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
   // Validation patterns
   const patterns = {
     name: /^[a-zA-Z\s]{2,50}$/,
-    email:/^[a-zA-Z0-9._%+-]+@[a-zA-Z]{2,}\.[a-zA-Z]{2,}$/,
+    email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z]{2,}\.[a-zA-Z]{2,}$/,
     phone: /^[6-9]\d{9}$/,
-    city:/^[a-zA-Z\s]{2,50}$/,
-    state:/^[a-zA-Z\s]{2,50}$/,
+    city: /^[a-zA-Z\s]{2,50}$/,
+    state: /^[a-zA-Z\s]{2,50}$/,
     zipCode: /^[\d]{6}$/,
     cardNumber: /^[\d]{16}$/,
     cardExpiry: /^(0[1-9]|1[0-2])\/([0-9]{2})$/,
@@ -481,7 +483,7 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
                 },
               }}
             >
-              Details
+              {translations?.details_title || "Loading..."}
             </StepLabel>
           </Step>
           <Step>
@@ -499,7 +501,7 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
                 },
               }}
             >
-              Payment
+              {translations?.payment_title || "Loading..."}
             </StepLabel>
           </Step>
           <Step>
@@ -517,7 +519,7 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
                 },
               }}
             >
-              Confirm
+              {translations?.confirm_title || "Loading..."}
             </StepLabel>
           </Step>
         </Stepper>
@@ -577,7 +579,7 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
                     error={!!errors.name}
                     helperText={errors.name}
                     size={isMobile ? "small" : "medium"}
-                  
+
                   />
 
                   <TextField
@@ -867,147 +869,147 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
 
             {((step === 3 && formData.paymentMethod === "cod") ||
               (step === 5 && formData.paymentMethod === "card")) && (
-              <motion.div variants={fadeInUp}>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                  <Typography
-                    variant="h5"
-                    gutterBottom
-                    style={{ color: "white" }}
-                  >
-                    Confirm Order
-                  </Typography>
-                  <Paper sx={{ p: { xs: 2, sm: 3 } }}>
-                    <Typography variant="subtitle1" gutterBottom>
-                      Delivery Address:
+                <motion.div variants={fadeInUp}>
+                  <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                    <Typography
+                      variant="h5"
+                      gutterBottom
+                      style={{ color: "white" }}
+                    >
+                      Confirm Order
                     </Typography>
-                    <Typography color="text.secondary" paragraph>
-                      {formData.name}
-                      <br />
-                      {formData.address}
-                      <br />
-                      {formData.city}, {formData.state} {formData.zipCode}
-                      <br />
-                      Phone: {formData.phone}
-                    </Typography>
-                    <Typography variant="subtitle1" gutterBottom>
-                      Payment Method:
-                    </Typography>
-                    <Typography color="text.secondary">
-                      {formData.paymentMethod === "cod"
-                        ? "Cash on Delivery"
-                        : `${formData.cardType} Card`}
-                    </Typography>
-                  </Paper>
-                </Box>
-              </motion.div>
-            )}
+                    <Paper sx={{ p: { xs: 2, sm: 3 } }}>
+                      <Typography variant="subtitle1" gutterBottom>
+                        Delivery Address:
+                      </Typography>
+                      <Typography color="text.secondary" paragraph>
+                        {formData.name}
+                        <br />
+                        {formData.address}
+                        <br />
+                        {formData.city}, {formData.state} {formData.zipCode}
+                        <br />
+                        Phone: {formData.phone}
+                      </Typography>
+                      <Typography variant="subtitle1" gutterBottom>
+                        Payment Method:
+                      </Typography>
+                      <Typography color="text.secondary">
+                        {formData.paymentMethod === "cod"
+                          ? "Cash on Delivery"
+                          : `${formData.cardType} Card`}
+                      </Typography>
+                    </Paper>
+                  </Box>
+                </motion.div>
+              )}
 
             {((step === 4 && formData.paymentMethod === "cod") ||
               (step === 6 && formData.paymentMethod === "card")) && (
-              <motion.div variants={fadeInUp}>
-                <Box sx={{ textAlign: "center" }}>
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 20,
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: { xs: 60, sm: 80 },
-                        height: { xs: 60, sm: 80 },
-                        borderRadius: "50%",
-                        bgcolor: "success.main",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        margin: "0 auto",
-                        mb: 3,
+                <motion.div variants={fadeInUp}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 20,
                       }}
                     >
-                      <Check sx={{ fontSize: { xs: 30, sm: 40 } }} />
-                    </Box>
-                  </motion.div>
-                  <Typography
-                    variant="h5"
-                    gutterBottom
-                    style={{ color: "white" }}
-                  >
-                    Order Confirmed!
-                  </Typography>
-                  <Typography color="text.secondary" paragraph>
-                    Thank you for your purchase
-                  </Typography>
-                  <Paper
-                    sx={{
-                      p: { xs: 2, sm: 3 },
-                      mt: 3,
-                      background:
-                        "linear-gradient(145deg, rgba(187, 134, 252, 0.1), rgba(3, 218, 198, 0.1))",
-                    }}
-                  >
-                    <Typography variant="h6" gutterBottom>
-                      Order Summary
-                    </Typography>
-
-                    <TableContainer
-                      component={Paper}
-                      sx={{ boxShadow: "none", background: "transparent" }}
+                      <Box
+                        sx={{
+                          width: { xs: 60, sm: 80 },
+                          height: { xs: 60, sm: 80 },
+                          borderRadius: "50%",
+                          bgcolor: "success.main",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          margin: "0 auto",
+                          mb: 3,
+                        }}
+                      >
+                        <Check sx={{ fontSize: { xs: 30, sm: 40 } }} />
+                      </Box>
+                    </motion.div>
+                    <Typography
+                      variant="h5"
+                      gutterBottom
+                      style={{ color: "white" }}
                     >
-                      <Table>
-                        <TableHead>
-                          <TableRow>
-                            <TableCell>
-                              <strong>Product</strong>
-                            </TableCell>
-                            <TableCell align="center">
-                              <strong>Quantity</strong>
-                            </TableCell>
-                            <TableCell align="right">
-                              <strong>Price</strong>
-                            </TableCell>
-                          </TableRow>
-                        </TableHead>
-                        <TableBody>
-                          {cart?.items?.map((item) => (
-                            <TableRow key={item.productId._id}>
-                              <TableCell>{item.productId.name}</TableCell>
+                      Order Confirmed!
+                    </Typography>
+                    <Typography color="text.secondary" paragraph>
+                      Thank you for your purchase
+                    </Typography>
+                    <Paper
+                      sx={{
+                        p: { xs: 2, sm: 3 },
+                        mt: 3,
+                        background:
+                          "linear-gradient(145deg, rgba(187, 134, 252, 0.1), rgba(3, 218, 198, 0.1))",
+                      }}
+                    >
+                      <Typography variant="h6" gutterBottom>
+                        Order Summary
+                      </Typography>
+
+                      <TableContainer
+                        component={Paper}
+                        sx={{ boxShadow: "none", background: "transparent" }}
+                      >
+                        <Table>
+                          <TableHead>
+                            <TableRow>
+                              <TableCell>
+                                <strong>Product</strong>
+                              </TableCell>
                               <TableCell align="center">
-                                {item.quantity}
+                                <strong>Quantity</strong>
                               </TableCell>
                               <TableCell align="right">
-                                ₹
-                                {((item.productId.price - item.productId.discountPrice) * item.quantity).toFixed(2)}
+                                <strong>Price</strong>
                               </TableCell>
                             </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
+                          </TableHead>
+                          <TableBody>
+                            {cart?.items?.map((item) => (
+                              <TableRow key={item.productId._id}>
+                                <TableCell>{item.productId.name}</TableCell>
+                                <TableCell align="center">
+                                  {item.quantity}
+                                </TableCell>
+                                <TableCell align="right">
+                                  ₹
+                                  {((item.productId.price - item.productId.discountPrice) * item.quantity).toFixed(2)}
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
 
-                    <Divider sx={{ my: 2 }} />
+                      <Divider sx={{ my: 2 }} />
 
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        px: 2,
-                      }}
-                    >
-                      <Typography variant="subtitle1">
-                        <strong>Total</strong>
-                      </Typography>
-                      <Typography variant="subtitle1" color="primary">
-                        <strong>₹{totalPrice}</strong>
-                      </Typography>
-                    </Box>
-                  </Paper>
-                </Box>
-              </motion.div>
-            )}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          px: 2,
+                        }}
+                      >
+                        <Typography variant="subtitle1">
+                          <strong>Total</strong>
+                        </Typography>
+                        <Typography variant="subtitle1" color="primary">
+                          <strong>₹{totalPrice}</strong>
+                        </Typography>
+                      </Box>
+                    </Paper>
+                  </Box>
+                </motion.div>
+              )}
 
             <Box
               sx={{
@@ -1056,48 +1058,48 @@ export default function MultiStepCheckoutForm({ totalPrice, onClose }) {
               )}
               {((step === 3 && formData.paymentMethod === "cod") ||
                 (step === 5 && formData.paymentMethod === "card")) && (
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  fullWidth={isMobile}
-                  disabled={loading}
-                  sx={{
-                    background:
-                      " #BB86FC ",
-                    "&:hover": {
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    fullWidth={isMobile}
+                    disabled={loading}
+                    sx={{
                       background:
-                        " #02b3a9",
-                    },
-                  }}
-                >
-                  {loading ? (
-                    <CircularProgress size={24} color="inherit" />
-                  ) : (
-                    "Place Order"
-                  )}
-                </Button>
-              )}
+                        " #BB86FC ",
+                      "&:hover": {
+                        background:
+                          " #02b3a9",
+                      },
+                    }}
+                  >
+                    {loading ? (
+                      <CircularProgress size={24} color="inherit" />
+                    ) : (
+                      "Place Order"
+                    )}
+                  </Button>
+                )}
               {((step === 4 && formData.paymentMethod === "cod") ||
                 (step === 6 && formData.paymentMethod === "card")) && (
-                <Button
-                  variant="contained"
-                  onClick= {()=>{
-                    onClose()
-                    window.location.reload()
-                  }}
-                  fullWidth={isMobile}
-                  sx={{
-                     background:
-                      " #BB86FC ",
-                    "&:hover": {
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      onClose()
+                      window.location.reload()
+                    }}
+                    fullWidth={isMobile}
+                    sx={{
                       background:
-                        " #02b3a9 ",
-                    },
-                  }}
-                >
-                  Close
-                </Button>
-              )}
+                        " #BB86FC ",
+                      "&:hover": {
+                        background:
+                          " #02b3a9 ",
+                      },
+                    }}
+                  >
+                    Close
+                  </Button>
+                )}
             </Box>
           </motion.div>
         </AnimatePresence>

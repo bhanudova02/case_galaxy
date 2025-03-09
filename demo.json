@@ -1,14 +1,13 @@
 [
     {
-        "reviews":"reviews",
-        "in_stock":"In Stock",
-        "out_of_stock":"Out of Stock"
-
+        "details_title":"Details",
+        "payment_title":"Payment",
+        "confirm_title":"Confirm",
+       
     },
     {
-        "reviews":"评价",
-        "in_stock":"有货 ",
-        "out_of_stock":"缺货",
-
+        "details_title":"详情",
+        "payment_title":"付款",
+        "confirm_title":"确认",
     }
 ]
